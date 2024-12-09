@@ -4,17 +4,23 @@ include "classes/Employee.php";
 include "classes/Zoo.php";
 include "classes/Enclosure.php";
 
-$tiger = new Tiger([
-    "name" => "Pepito",
-    "species" => "Tigre",
-    "weight" => 100,
-    "size" => "Grande",
-    "age" => 10,
-    "isHungry" => true,
-    "isSleeping" => false,
-    "isSick" => false,  
-]);
-echo $tiger;
+$enclos = new Aquarium("Enclos des petits poissons", EnclosureCleanliness::DIRTY);
 
-$enclosure = new Enclosure()
+$bird = new Fish([
+    "name" => "Bibou",
+    "species" => "Fish",
+    "weight" => 100,
+    "size" => 180,
+    "age" => 10,
+    "isHungry" => false,
+    "isSleeping" => false,
+    "isSick" => true,
+]);
+
+$enclos->addAnimal($bird);
+$enclos->removeAnimal('Bibou');
+echo $enclos;
+$enclos->maintenance();
+$enclos->examine();
+
 ?>
